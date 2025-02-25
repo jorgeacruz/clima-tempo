@@ -1,6 +1,7 @@
+
 import { useRef, useState } from 'react'
 import axios from 'axios'
-import './App.css'
+
 
 import WeatherInfo from './components/WeatherInfo'
 import WeatherOtherInfo from './components/WeatherOtherInfo'
