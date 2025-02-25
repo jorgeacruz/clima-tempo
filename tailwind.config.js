@@ -2,7 +2,12 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Primary: ["Raleway", "sans-serif"],
+        Secondary: ["Nunito", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
