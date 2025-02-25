@@ -7,6 +7,9 @@ export default function WeatherLatLong({weather}) {
             <h4 className="pb-2 font-bold font-Secondary">Localização</h4>
             <h4 className="font-Secondary">Latitude: {weather.coord.lat}</h4>
             <h4 className="font-Secondary">Longitude: {weather.coord.lon}</h4>
-      </div>
+            <h4 className="pb-2 pt-1 font-bold font-Secondary">Nascer / Por do Sol</h4>
+            <h4 className="font-Secondary">Nascer: {new Date(weather.sys.sunrise * 1000).toLocaleTimeString()}</h4>
+            <h4 className="font-Secondary">Por: {new Date(weather.sys.sunset * 1000).toLocaleTimeString()}</h4></div>
+            
     );
    }
