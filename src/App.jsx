@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify'
 import './App.css'
 
 import WeatherInfo from './components/WeatherInfo'
@@ -19,8 +20,8 @@ function App() {
   async function searchCity(){
     // condicional para verificar se o input está vazio
     if(!inputRef.current.value){
-      alert('Digite uma cidade')
-      return
+      toast.error('Digite o nome do lugar!');
+      return;
     }
     // cidade digitada
     const city = inputRef.current.value
@@ -56,7 +57,7 @@ function App() {
         <div>
           <h1 className=' text-white text-2xl md:text-5xl sm:text-3xl font-thin'>Previsão do Tempo</h1>
           <div className='pt-5'>
-            <input type='text' ref={inputRef} className='w-52 rounded-l-full p-1 text-center' placeholder='Digite sua cidade' />
+            <input type='text' ref={inputRef} className='w-52 rounded-l-full p-1 text-center' placeholder='Digite o nome do lugar!' />
             <button className='w-32 rounded-r-full p-1 bg-black text-white' onClick={searchCity}>
               <text className='text-sm font-thin'>Pesquisar</text>
             </button>
@@ -79,11 +80,12 @@ function App() {
           {
             weather &&
             <button className='w-32 rounded-full p-1 bg-black text-white' onClick={clear}>
-              <text className='text-sm font-thin'>Limpar</text>
+              <text className='text-sm font-thin'>Limpar Consulta</text>
             </button>
 
           }
         </div>
+        <ToastContainer />
     </div>
   )
 }
