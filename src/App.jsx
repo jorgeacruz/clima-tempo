@@ -8,7 +8,13 @@ import WeatherOtherInfo from './components/WeatherOtherInfo'
 import WeatherLatLong from './components/WeatherLatLong'
 import Weather5days from './components/Weather5days'
 
-function App() {
+function App() {  
+  
+  const [darkMode, setDarkMode] = useState(false)
+
+  function toggleDarkMode() {
+    setDarkMode(!darkMode)
+  }
 
   // estado para armazenar as informações do tempo
   const [weather, setWeather] = useState()
@@ -53,7 +59,8 @@ function App() {
 
   
   return (
-    <div className='bg-gradient-to-r from-orange-500 to-red-500 w-full h-screen flex flex-col justify-start items-center pt-36'>
+    <div className='w-full flex flex-col justify-start items-center pt-36 h-screen max-h-full'>
+     
         <div>
           <h1 className=' text-white text-2xl md:text-5xl sm:text-3xl font-thin'>Previsão do Tempo</h1>
           <div className='pt-5'>
@@ -67,8 +74,19 @@ function App() {
           { weather && <WeatherInfo weather={weather}/> } 
           { weather && <WeatherOtherInfo weather={weather}/> }
           { weather && <WeatherLatLong weather={weather}/> }
+
+            
+
         </div>
-        <div className='flex flex-col items-center p-6'>
+        <div className='mt-16'>
+                {
+                  weather &&
+                  <button className='w-48 rounded-full p-1 bg-black text-white' onClick={clear}>
+                    <text className='text-sm font-thin'>Limpar Consulta</text>
+                  </button>
+                }
+        </div>
+        <div className='flex flex-col items-center'>
           { weather && 
             <h1 className='text-2xl text-white font-thin mt-5'>Previsão para os próximos 5 dias</h1>
           }
@@ -76,16 +94,8 @@ function App() {
             <Weather5days weatherForecast={weatherForecast}/>
           }
         </div>
-        <div className='mt-6'>
-          {
-            weather &&
-            <button className='w-32 rounded-full p-1 bg-black text-white' onClick={clear}>
-              <text className='text-sm font-thin'>Limpar Consulta</text>
-            </button>
-
-          }
-        </div>
         <ToastContainer />
+        
     </div>
   )
 }
