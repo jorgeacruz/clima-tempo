@@ -9,5 +9,5 @@ OpenWeather provides an API that allows real-time access to weather data for you
 - **Biblioteca HTTP**: Axios
 - **Estilização e Responsividade**: Tailwind CSS V3
 
-- **Link para o App**: [Clima Tempo App](https://previsao-clima.netlify.app)
+- **Link para o App**: [Clima Tempo App](https://clima-tempo-app.netlify.app)
 
